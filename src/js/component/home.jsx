@@ -6,19 +6,18 @@ import rigoImage from "../../img/rigo-baby.jpg";
 //create your first component
 const Home = () => {
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="Container">
+			<h2>Mi Lista Todos</h2>
+			
+			<ul>
+				<li><input type="text" placeholder="Add More"></input></li>
+				<li>Tomar café</li>
+				<li>Hacer mi cama</li>				
+				<li>Hacer el proyecto</li>
+				<li>Flojear el resto del día</li>
+
+			</ul>
+
 		</div>
 	);
 };
