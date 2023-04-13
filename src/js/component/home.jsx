@@ -13,7 +13,7 @@ function App() {
 				</h1>
 				<TodoInput />
 				<TodoList>
-					<h2><Todo></Todo></h2>
+					<Todo />
 				</TodoList>
 
 			</div>
