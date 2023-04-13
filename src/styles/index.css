@@ -1,62 +1,58 @@
-.Container {
-    background-color: rgb(199, 214, 219);
-    height: 40vh;
-    width: 60vh;
-    margin: 25%;
-    padding: 40px;
-    border-radius: 5px;
+.Contenedor {
+    margin: auto;
+    width: 50%;
+    background-color: rgb(179, 173, 190);
+    border: 1px solid grey;
+    padding: 10px;
 
+    height: max-content;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    
 
+    height: 80%;
+    background-color: rgb(227, 221, 240);
 }
 
 h1 {
-    text-align: center;
-    padding-top: 5px;
-    color:rgb(68, 68, 140)
-}
-#Entrada {
-    border-radius: 6px;
-    border-color: rgb(156, 156, 167);
-
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#Add {
- border-radius: 6px;
- border-color: rgb(36, 180, 40);
- background-color: rgb(155, 235, 165);
- color:rgb(3, 67, 35);
+.Input {
+    position: relative;
 }
 
-#Delete {
-    border-radius: 6px;
-    border-color: rgb(112, 23, 25);
-    background-color: rgb(223, 29, 58);
-    color:rgb(235, 244, 240);
-   
-
+.Inset {
+    inset: 0;
+    padding-left: 3;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
 }
-ul li {
-    border-radius: 6px;
-    list-style: none;
-    border-style: solid;
-    border-color: cadetblue;
+#input1 {
+  
+    border-radius: 5px;
+    border-color: azure;
 }
-
-.input-group {
-    
+#Check1 {
+    border-radius: 50%;
+}
+.Lista {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    
+    margin-top: 3px;
+    overflow: hidden;
 }
-
-
-#Input {
-    width: 90%;
-    border-radius: 5px solid;
-    
+.Todo1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
     
 }
