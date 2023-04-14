@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import 'App.css';
+import './App.css';
 
 
 function App() {
@@ -9,9 +9,9 @@ function App() {
 
 
     function addItem() {
-
+    
         if (!newItem) {
-            alert("Enter an item")
+            alert("Enter an item");
             return;
         }
 
@@ -33,20 +33,15 @@ function App() {
     return (
         <div className='container'>
             <div className='App'>
-                {<h1>Todo List</h1>}
-
+                <h1>Todo List</h1>
 
                 <input
                     type="text"
                     placeholder="Add an item"
                     value={newItem}
                     onChange={e => setNewItem(e.target.value)}
-
-
                 />
                 <button onClick={() => addItem()}>Add</button>
-
-
 
                 <ul>
                     {items.map(item => {
