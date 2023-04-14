@@ -22,12 +22,12 @@ function App() {
 
         setitems(oldList => [...oldList, item]);
         setNewItem(""),      
-    }
+    };
 
     function deleteItem(id) {
         const newArray = items.filter(item => item.id !== id);
         setitems(newArray);
-    }
+    };
 
 
     return (
@@ -47,7 +47,7 @@ function App() {
                     {items.map(item => {
                         return (
                             <li key={item.id}>{item.value}
-                            <button onClick={() => deleteItem(item.id)}>X</button>
+                            <button className='delete-boton' onClick={() => deleteItem(item.id)}>X</button>
                             </li>
                         )
                     })}
