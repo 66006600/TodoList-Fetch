@@ -9,7 +9,7 @@ function App() {
 
 
     function addItem() {
-    
+
         if (!newItem) {
             alert("Enter an item");
             return;
@@ -32,29 +32,34 @@ function App() {
 
     return (
         <div className='container'>
+
             <div className='App'>
                 <h1>Todo List</h1>
 
-                <input
-                    type="text"
-                    placeholder="Add an item"
-                    value={newItem}
-                    onChange={e => setNewItem(e.target.value)}
+            </div>
+
+            <div className='TodoInput'> <input
+                type="text"
+                placeholder="Add an item"
+                value={newItem}
+                onChange={e => setNewItem(e.target.value)}
                 />
                 <button onClick={() => addItem()}>Add</button>
+            </div>
 
+            <div>
                 <ul>
                     {items.map(item => {
                         return (
                             <li key={item.id}>{item.value}
-                            <button className='delete-boton' onClick={() => deleteItem(item.id)}>X</button>
+                                <button className='delete-boton' onClick={() => deleteItem(item.id)}>X</button>
                             </li>
                         )
                     })}
 
                 </ul>
             </div>
-        </div>
+        </div>        
     )
 }
 
