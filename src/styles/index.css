@@ -1,3 +1,12 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.container {
+    background-color: rgb(225, 220, 239);
+    height: 400px;
+    width: 450px;
+    margin: auto;
+    padding: 5px;
+    
+}
+
+h1 {
+    background-color: rgb(236, 229, 229);
+}

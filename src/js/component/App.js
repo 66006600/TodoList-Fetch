@@ -1,47 +1,61 @@
 import React, { useState } from 'react';
-import TodoInput from './TodoInput.js';
-import TodoList from "./TodoList.js";
-import Todo from "./Todo.js";
+import 'App.css';
 
-function App () {
 
-    const [todo, setTodos] = useState ([
-        {
-            id:1,
-            title: 'Tomar cafe late',
-            completed: false
-        }
-        {
-            id:2,
-            title: 'Hacer la cama',
-            completed: false
-        }
-        {
-            id:3,
-            title: 'Ver peliculas todo el día',
-            completed: false
-        }
-        {
-            id:4,
-            title: 'Ir de shopping',
-            completed: false
-        }
-    ])
+function App() {
 
-const Home = () => {
-	return(
-		<div className="bg-gray-900 min-h-screen h-full text-gray-100 flex items-center justify-center py-20 px-5">
-			<div className="container flex flex-col max-w-xl">
-				<h1 className="text-3xl font-bold underline">Todo List</h1>
-				<TodoInput />
-				<TodoList todo={todo} >
-					
+    const [newItem, setNewItem] = useState("");
+    const [items, setitems] = useState([]);
 
-				
-			</div>
-		</div>
-	);
-};
+
+    function addItem() {
+
+        if (!newItem) {
+            alert("Enter an item")
+            return;
+        }
+
+        const item = {
+            id: Math.floor(Math.random() * 1000),
+            value: newItem
+        };
+
+        setitems(oldList =>[...oldList, item]);
+        setNewItem(""),      
+    }
+
+
+    return (
+        <div className='container'>
+            <div className='App'>
+                {<h1>Todo List</h1>}
+
+
+                <input
+                    type="text"
+                    placeholder="Add an item"
+                    value={newItem}
+                    onChange={e => setNewItem(e.target.value)}
+
+
+                />
+                <button onClick={() => addItem()}>Add</button>
+
+
+
+                <ul>
+                    <li>Tomar un rico Late</li>
+                    <li>Hacer la cama</li>
+                    <li>regar las plantas</li>
+
+                </ul>
+
+
+
+            </div>
+
+        </div>
+    )
 }
 
-export default Home;
+export default App;
