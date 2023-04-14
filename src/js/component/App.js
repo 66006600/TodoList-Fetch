@@ -20,8 +20,13 @@ function App() {
             value: newItem
         };
 
-        setitems(oldList =>[...oldList, item]);
+        setitems(oldList => [...oldList, item]);
         setNewItem(""),      
+    }
+
+    function deleteItem(id) {
+        const newArray = items.filter(item => item.id !== id);
+        setitems(newArray);
     }
 
 
@@ -44,16 +49,16 @@ function App() {
 
 
                 <ul>
-                    <li>Tomar un rico Late</li>
-                    <li>Hacer la cama</li>
-                    <li>regar las plantas</li>
+                    {items.map(item => {
+                        return (
+                            <li key={item.id}>{item.value}
+                            <button onClick={() => deleteItem(item.id)}>X</button>
+                            </li>
+                        )
+                    })}
 
                 </ul>
-
-
-
             </div>
-
         </div>
     )
 }
