@@ -12,7 +12,7 @@ body {
     margin: auto;  
     margin-top: 10%; 
     background-color: rgb(225, 220, 239);
-    padding: 1px;
+    padding: 20px;
     border-radius: 6px;
 }
 .App {
@@ -51,13 +51,14 @@ input:focus-within {
 
 ul {
     list-style: none;
-    
-    
+     border: solid 1px rgb(68, 68, 243);
+     
+     
 
 }
 li {
     margin: 12px 0;
-    border-style: solid 1px;
+   
 }
 .delete-boton {
     
