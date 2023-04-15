@@ -3,18 +3,19 @@ body {
 }
 
 .container {
-   
-    margin-top: 50%;
-    margin-left: 50%;
-    background-color: rgb(225, 220, 239);
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   text-align: center;
     height: 300px;   
-    width: 300%;
-    margin: auto;
-    padding: 5px;
+    width: 400px;
+    margin: auto;   
+    background-color: rgb(225, 220, 239);
+    padding: 1px;
     
 }
 .App {
-    text-align: center;
+    
 }
 h1 {
     letter-spacing: 5px;
@@ -23,13 +24,18 @@ h1 {
     background-color: rgb(236, 229, 229);
 }
 .TodoInput {
+    display: container;
+    justify-content: space-around;
+    
     margin-bottom: 10px;
     box-shadow: 3px 3px 5px rgb(203, 169, 169);
+    border-radius: 6px;
 }
 
 input {
     padding: 4px;
     margin-right: 8px;
+    border-radius: 6px;
 }
 
 ul {
@@ -40,12 +46,14 @@ li {
     margin: 12px 0;
 }
 .delete-boton {
+    
+    border: 1px;
+    border-color: brown;
     font-size: 10px;
     margin-left: 8px;
-
-    border: none;
-    color: white;
-    border-radius: 4px;
+    
+    color: rgb(107, 37, 37);
+    border-radius: 4px;    
 
     padding-top: 4px;
     padding-bottom: 4px;
