@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import './App.css';
+import '../../styles/index.css';
 
 
 function App() {
 
     const [newItem, setNewItem] = useState("");
     const [items, setitems] = useState([]);
-
 
     function addItem() {
 
@@ -21,7 +20,7 @@ function App() {
         };
 
         setitems(oldList => [...oldList, item]);
-        setNewItem(""),      
+        setNewItem("")     
     };
 
     function deleteItem(id) {
