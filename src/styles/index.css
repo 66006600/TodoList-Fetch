@@ -9,10 +9,11 @@ body {
    text-align: center;
     height: 300px;   
     width: 400px;
-    margin: auto;   
+    margin: auto;  
+    margin-top: 10%; 
     background-color: rgb(225, 220, 239);
     padding: 1px;
-    
+    border-radius: 6px;
 }
 .App {
     
@@ -37,13 +38,25 @@ input {
     margin-right: 8px;
     border-radius: 6px;
 }
+input:focus-within {
+    font-weight: bold;
+    background-color: rgb(159, 134, 183);
+    color: white;
+    
+}
+.ButtonAdd {
+    
+    border-radius: 6px;
+}
 
 ul {
     list-style: none;
+    
 
 }
 li {
     margin: 12px 0;
+    border-style: solid 1px;
 }
 .delete-boton {
     

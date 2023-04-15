@@ -43,7 +43,7 @@ function App() {
                 value={newItem}
                 onChange={e => setNewItem(e.target.value)}
                 />
-                <button onClick={() => addItem()}>Add</button>
+                <button className='ButtonAdd' onClick={() => addItem()}>Add</button>
             </div>
 
             <div>
