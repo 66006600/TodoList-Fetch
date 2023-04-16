@@ -23,26 +23,36 @@ h1 {
     background-color: rgb(218, 212, 236);
 }
 .TodoInput {
-    display: container;
-    justify-content: space-around;
-    
-    margin-bottom: 10px;
-    box-shadow: 3px 3px 5px rgb(46, 4, 131);
+    border: 0;
     border-radius: 6px;
+    display: inline-flex;
+    justify-content: space-between;       
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 6px rgb(46, 4, 131);
+    
+    background: linear-gradient(to right, rgb(130, 117, 217), rgb(36, 11, 98) );
+    
 }
 
 input {
+    border: 0;
+    border-radius: 6px;
     padding: 4px;
     margin-right: 8px;
-    border-radius: 6px;
+    border-left-color: #482369;
+    border-top-color:  #482369;
+   
 }
 input:focus-within {
-    
-    background-color: rgb(244, 239, 249);
+    border-radius: 6px;
+    border-color: blueviolet;
+    background-color: rgb(234, 227, 240);
     color: rgb(23, 21, 21);
     
 }
-.ButtonAdd {    
+.ButtonAdd {  
+    width: 30%;  
+    border: 0;
     border-radius: 6px;
     background: linear-gradient(to right, rgb(206, 201, 240), rgb(36, 11, 98) );;
     text-shadow:-.05em -.05em .05em hsl( 211, 40%,20%);
@@ -61,15 +71,13 @@ li {
 }
 
 .delete-boton {
-    
     border: 1px;
     border-color: brown;
     font-size: 10px;
     margin-left: 8px;
     
     color: rgb(107, 37, 37);
-    border-radius: 4px;    
-
+    border-radius: 4px;   
     padding-top: 4px;
     padding-bottom: 4px;
 }
