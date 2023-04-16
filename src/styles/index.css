@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(to right, rgb(104, 95, 162), rgb(171, 79, 100) );
+    background: linear-gradient(to right, rgb(104, 95, 162), rgb(53, 24, 31) );
 }
 
 .container {
@@ -7,7 +7,7 @@ body {
    flex-direction: column;
    justify-content: center;
    text-align: center;
-    height: 300px;   
+    height: 400px;   
     width: 400px;
     margin: auto;  
     margin-top: 10%; 
@@ -15,14 +15,12 @@ body {
     padding: 20px;
     border-radius: 6px;
 }
-.App {
-    
-}
+
 h1 {
     letter-spacing: 5px;
     font-weight: bold;
     text-align: center;
-    background-color: rgb(236, 229, 229);
+    background-color: rgb(225, 220, 239);
 }
 .TodoInput {
     display: container;
@@ -44,20 +42,24 @@ input:focus-within {
     color: white;
     
 }
-.ButtonAdd {
-    
+.ButtonAdd {    
     border-radius: 6px;
+    background: linear-gradient(hsl(211, 51%, 82%), hsl( 211, 40%,52%));
+  text-shadow:-.05em -.05em .05em hsl( 211, 40%,20%);
 }
 
 ul {
     list-style: none;
-     border: solid 1px rgb(68, 68, 243);
+     border: solid 1px rgb(135, 135, 241);
+     background-color: rgb(170, 161, 195);
+     border-radius: 3px;
      
      
 
 }
 li {
     margin: 12px 0;
+
    
 }
 .delete-boton {
@@ -72,5 +74,11 @@ li {
 
     padding-top: 4px;
     padding-bottom: 4px;
+}
+#LeftItem {
+    text-align: left;  
+    
+    border-radius: 4px;
+    
 }
 
