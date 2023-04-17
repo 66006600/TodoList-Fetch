@@ -4,15 +4,15 @@ import '../../styles/index.css';
 function App() {
   const [newItem, setNewItem] = useState("");
   const [items, setItems] = useState([
-    { id: 1, value: "Hacer la compra" },
-    { id: 2, value: "Llamar al médico" },
-    { id: 3, value: "Ir al gimnasio" },
-    { id: 4, value: "Estudiar para el examen" },
+    { id: 1, value: "NO ir al gimnasio" },
+    { id: 2, value: "Terminar los proyectos" },
+    { id: 3, value: "Hacer las compras" },
+    { id: 4, value: "Ver tv todo el día" }
   ]);
 
   function addItem() {
     if (!newItem) {
-      alert("Enter an item");
+      alert("DIEGO: Enter an item");
       return;
     }
 
@@ -56,9 +56,8 @@ function App() {
             )
           })}
         </ul>
-        <div>
-          <p className='contenedor' id='LeftItem'>{count} Left Items</p>
-
+        <div className='contenedor'>
+          <p id='LeftItem'>{count} Left Items</p>
         </div>
       </div>
     </div>

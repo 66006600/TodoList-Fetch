@@ -1,37 +1,38 @@
 body {
-    background: linear-gradient(to right, rgb(130, 117, 217), rgb(36, 11, 98) );
+    background: linear-gradient(to right, rgb(130, 117, 217), rgb(36, 11, 98));
 }
 
 .container {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   text-align: center;
-    height: 400px;   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 400px;
     width: 400px;
-    margin: auto;  
-    margin-top: 10%; 
+    margin: auto;
+    margin-top: 10%;
     background-color: rgb(215, 205, 244);
     padding: 20px;
     border-radius: 6px;
 }
 
 h1 {
+    color: rgb(71, 10, 128);
     letter-spacing: 5px;
     font-weight: bold;
     text-align: center;
     background-color: rgb(218, 212, 236);
 }
+
 .TodoInput {
     border: 0;
     border-radius: 6px;
     display: inline-flex;
-    justify-content: space-between;       
+    justify-content: space-between;
     margin-bottom: 10px;
     box-shadow: 3px 3px 6px rgb(46, 4, 131);
-    
-    background: linear-gradient(to right, rgb(130, 117, 217), rgb(36, 11, 98) );
-    
+    background: linear-gradient(to right, rgb(130, 117, 217), rgb(36, 11, 98));
+
 }
 
 input {
@@ -40,34 +41,37 @@ input {
     padding: 4px;
     margin-right: 8px;
     border-left-color: #482369;
-    border-top-color:  #482369;
-   
+    border-top-color: #482369;
+
 }
+
 input:focus-within {
     border-radius: 6px;
     border-color: blueviolet;
     background-color: rgb(234, 227, 240);
     color: rgb(23, 21, 21);
-    
+
 }
-.ButtonAdd {  
-    width: 30%;  
+
+.ButtonAdd {
+    width: 30%;
     border: 0;
     border-radius: 6px;
-    background: linear-gradient(to right, rgb(206, 201, 240), rgb(36, 11, 98) );;
-    text-shadow:-.05em -.05em .05em hsl( 211, 40%,20%);
+    background: linear-gradient(to right, rgb(206, 201, 240), rgb(36, 11, 98));
+    ;
+    text-shadow: -.05em -.05em .05em hsl(211, 40%, 20%);
 }
 
 ul {
     list-style: none;
-     border: solid 1px rgb(135, 135, 241);
-     background-color: rgb(218, 212, 236);
-     border-radius: 3px;   
-     
+    border: solid 1px rgb(135, 135, 241);
+    background-color: rgb(218, 212, 236);
+    border-radius: 3px;
 
 }
+
 li {
-    margin: 12px 0;   
+    margin: 12px 0;
 }
 
 .delete-boton {
@@ -75,16 +79,16 @@ li {
     border-color: brown;
     font-size: 10px;
     margin-left: 8px;
-    
+
     color: rgb(107, 37, 37);
-    border-radius: 4px;   
+    border-radius: 4px;
     padding-top: 4px;
     padding-bottom: 4px;
 }
-#LeftItem {
-    text-align: left;  
-    
-    border-radius: 4px;
-    
-}
 
+#LeftItem {
+    display: inline-block;
+    justify-content: end;
+    border-radius: 4px;
+    border-bottom: solid 1px;
+}
