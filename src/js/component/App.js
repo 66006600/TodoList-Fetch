@@ -4,11 +4,24 @@ import '../../styles/index.css';
 function App() {
   const [newItem, setNewItem] = useState("");
   const [items, setItems] = useState([
+
     { id: 1, value: "NO ir al gimnasio" },
     { id: 2, value: "Terminar los proyectos" },
     { id: 3, value: "Hacer las compras" },
     { id: 4, value: "Ver tv todo el día" }
   ]);
+
+const url = "https://assets.breatheco.de/apis/fake/todos/user/66006600";
+  const fetchAsync = async () => {
+  const result = await fetch(url);
+  const data = await result.json();
+  return data.value;
+  
+  }
+console.log(fetchAsync);
+
+
+
 
   function addItem() {
     if (!newItem) {
