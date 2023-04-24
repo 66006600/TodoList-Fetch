@@ -3,23 +3,48 @@ import '../../styles/index.css';
 
 function App() {
   const [newItem, setNewItem] = useState("");
-  const [items, setItems] = useState([
+  const [items, setItems] = useState([]);
 
-    { id: 1, value: "NO ir al gimnasio" },
-    { id: 2, value: "Terminar los proyectos" },
-    { id: 3, value: "Hacer las compras" },
-    { id: 4, value: "Ver tv todo el día" }
-  ]);
-
-const url = "https://assets.breatheco.de/apis/fake/todos/user/66006600";
+  const url = "https://assets.breatheco.de/apis/fake/todos/user/66006600";
   const fetchAsync = async () => {
-  const result = await fetch(url);
-  const data = await result.json();
-  return data.value;
-  
-  }
-console.log(fetchAsync);
+    const result = await fetch(url);
+    const data = await result.json();
+    setItems(data);
+    return data.value;
 
+  }
+  console.log(fetchAsync());
+
+
+  const addTask = async (task) => {
+    try {
+      const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/66006600', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(task)
+      });
+      const data = await response.json();
+
+      this.setState(prevState => ({
+        tasks: [...prevState.tasks, data]
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+
+    async function deletePost() {
+      await fetch('https://assets.breatheco.de/apis/fake/todos/user/66006600',
+        { method: 'DELETE' });
+      setStatus('Delete successful');
+    }
+
+    deletePost();
+  }, []);
 
 
 
@@ -44,6 +69,21 @@ console.log(fetchAsync);
   };
 
   const count = items.filter(item => !item.completed).length;
+
+  async function clearList() {
+    try {
+      const response = await fetch(url, {
+        method: 'DELETE'
+      });
+      if (response.ok) {
+        setItems([]);
+      } else {
+        console.log('Error deleting the list');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className='container'>
@@ -71,7 +111,9 @@ console.log(fetchAsync);
         </ul>
         <div className='contenedor'>
           <p id='LeftItem'>{count} Left Items</p>
+          <button className='ButtonClear' onClick={() => clearList()}>Borrar Todo</button>
         </div>
+        
       </div>
     </div>
   )
