@@ -87,24 +87,21 @@ function App() {
       </div>
       <div>
         <ul>
-          {/* {items.map(item => {
+          {items.map(item => {
               return (
                 <li key={item.id}>{item.value}
                   <button className='delete-boton' onClick={() => deleteItem(item.id)}>X</button>
                 </li>
               )
-            })} */}
+            })}
         </ul>
         <div className='contenedor'>
-          <p id='LeftItem'>{/* {count} */} Left Items</p>
-          {/*  <button className='ButtonClear' onClick={() => clearList()}>Borrar Todo</button> */}
+          <p id='LeftItem'>{count}  Left Items</p>
+          <button className='ButtonClear' onClick={() => clearList()}>Borrar Todo</button>
         </div>
 
       </div>
     </div>
   )
 }
-
-
-
 export default App;
