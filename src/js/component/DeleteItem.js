@@ -6,7 +6,7 @@ function DeleteRequestAsyncAwait() {
     useEffect(() => {
 
         async function deletePost() {
-            await fetch('https://jsonplaceholder.typicode.com/posts/1', { method: 'DELETE' });
+            await fetch('https://assets.breatheco.de/apis/fake/todos/user/66006600', { method: 'DELETE' });
             setStatus('Delete successful');
         }
 

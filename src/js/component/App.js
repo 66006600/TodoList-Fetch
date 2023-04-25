@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../styles/index.css';
 
 function App() {
   const [newItem, setNewItem] = useState("");
   const [items, setItems] = useState([]);
 
+
+
   const url = "https://assets.breatheco.de/apis/fake/todos/user/66006600";
-  const fetchAsync = async () => {
+  const getData = async () => {
     const result = await fetch(url);
     const data = await result.json();
+    console.log(data);
     setItems(data);
-    return data.value;
 
   }
-  console.log(fetchAsync());
 
 
   const addTask = async (task) => {
@@ -27,37 +28,22 @@ function App() {
       });
       const data = await response.json();
 
-      this.setState(prevState => ({
-        tasks: [...prevState.tasks, data]
-      }));
-    } catch (error) {
+
+    }
+    catch (error) {
       console.log(error);
     }
   }
 
-  useEffect(() => {
-
-    async function deletePost() {
-      await fetch('https://assets.breatheco.de/apis/fake/todos/user/66006600',
-        { method: 'DELETE' });
-      setStatus('Delete successful');
-    }
-
-    deletePost();
-  }, []);
 
 
 
   function addItem() {
     if (!newItem) {
       alert("DIEGO: Enter an item");
-      return;
+
     }
 
-    const item = {
-      id: Math.floor(Math.random() * 1000),
-      value: newItem
-    };
 
     setItems(oldList => [...oldList, item]);
     setNewItem("")
@@ -68,7 +54,7 @@ function App() {
     setItems(newArray);
   };
 
-  const count = items.filter(item => !item.completed).length;
+
 
   async function clearList() {
     try {
@@ -101,22 +87,24 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map(item => {
-            return (
-              <li key={item.id}>{item.value}
-                <button className='delete-boton' onClick={() => deleteItem(item.id)}>X</button>
-              </li>
-            )
-          })}
+          {/* {items.map(item => {
+              return (
+                <li key={item.id}>{item.value}
+                  <button className='delete-boton' onClick={() => deleteItem(item.id)}>X</button>
+                </li>
+              )
+            })} */}
         </ul>
         <div className='contenedor'>
-          <p id='LeftItem'>{count} Left Items</p>
-          <button className='ButtonClear' onClick={() => clearList()}>Borrar Todo</button>
+          <p id='LeftItem'>{/* {count} */} Left Items</p>
+          {/*  <button className='ButtonClear' onClick={() => clearList()}>Borrar Todo</button> */}
         </div>
-        
+
       </div>
     </div>
   )
 }
+
+
 
 export default App;
