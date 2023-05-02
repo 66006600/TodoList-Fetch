@@ -4,74 +4,64 @@ import '../../styles/index.css';
 function App() {
   const [newItem, setNewItem] = useState("");
   const [items, setItems] = useState([]);
+  const [count, setCount] = useState(0);
 
+  useEffect(() => {
+    fetch('https://github.com/66006600/TodoList')
+      .then(response => response.json())
+      .then(data => {
+        setItems(data.todos);
+        setCount(data.todos.filter(item => !item.completed).length);
+      })
+      .catch(error => console.error(error));
+  }, []);
 
-
-  const url = "https://assets.breatheco.de/apis/fake/todos/user/66006600";
-  const getData = async () => {
-    const result = await fetch(url);
-    const data = await result.json();
-    console.log(data);
-    setItems(data);
-
-  }
-    useEffect (()=> getData(), [] );
-
-
-  const addTask = async (task) => {
-    try {
-      const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/66006600', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(task)
-      });
-      const data = await response.json();
-
+  function addItem() {
+    if (!newItem) {
+      alert("DIEGO: Enter an item");
+      return;
     }
-    catch (error) {
-      console.log(error);
-    }
-  }
 
-  async function addItem() {
-    const todos = [...items, {label: newItem, done: false}
-    ]
+    const item = {
+      value: newItem
+    };
 
-    const response = await fetch('https://assets.breatheco.de/apis/fake/todos/user/66006600', {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(todos)
-    });
-   if (response.ok) {
-    getData()
-   }
-
-    setNewItem("")
+    fetch('https://github.com/66006600/TodoList.git', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(item)
+    })
+      .then(response => response.json())
+      .then(data => {
+        setItems(oldList => [...oldList, data.todo]);
+        setCount(oldCount => oldCount + 1);
+        setNewItem("");
+      })
+      .catch(error => console.error(error));
   };
 
-  function deleteItem(id) {
-    const newArray = items.filter(item => item.id !== id);
-    setItems(newArray);
-  };
+  // function deleteItem(id) {
+  //   fetch(`/api/todos/${id}`, {
+  //     method: 'DELETE'
+  //   })
+  //     .then(() => {
+  //       const newArray = items.filter(item => item.id !== id);
+  //       setItems(newArray);
+  //       setCount(oldCount => oldCount - 1);
+  //     })
+  //     .catch(error => console.error(error));
+  // };
 
-  async function clearList() {
-    try {
-      const response = await fetch(url, {
-        method: 'DELETE'
-      });
-      if (response.ok) {
+  function deleteAll() {
+    fetch('/api/todos', {
+      method: 'DELETE'
+    })
+      .then(() => {
         setItems([]);
-      } else {
-        console.log('Error deleting the list');
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
+        setCount(0);
+      })
+      .catch(error => console.error(error));
+  };
 
   return (
     <div className='container'>
@@ -89,21 +79,22 @@ function App() {
       </div>
       <div>
         <ul>
-          {items.map((item, index) => {
-              return (
-                <li key={index}>{item.label}
-                  <button className='delete-boton' onClick={() => deleteItem(item.id)}>X</button>
-                </li>
-              )
-            })}
+          {items.map(item => {
+            return (
+              <li key={item.id}>{item.value}
+                <button className='delete-boton' onClick={() => deleteItem(item.id)}>X</button>
+              </li>
+            )
+          })}
         </ul>
         <div className='contenedor'>
-          {/* <p id='LeftItem'>{count}  Left Items</p> */}
-          <button className='ButtonClear' onClick={() => clearList()}>Borrar Todo</button>
+          <p id='LeftItem'>{count} Left Items</p>
+          <div> <button className='ButtonAdd' onClick={() => deleteAll()}>Clear All</button>
+          </div>
         </div>
-
       </div>
     </div>
   )
 }
+
 export default App;
