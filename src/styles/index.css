@@ -54,8 +54,7 @@ input:focus-within {
     border-radius: 6px;
     border-color: blueviolet;
     background-color: rgb(234, 227, 240);
-    color: rgb(23, 21, 21);
-   
+    color: rgb(23, 21, 21);   
 }
 
 .ButtonAdd {
