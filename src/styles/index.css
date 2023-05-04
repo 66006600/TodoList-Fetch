@@ -46,13 +46,13 @@ input {
     width: 60%;
     margin-right: 8px;
     border-left-color: #482369;
-    border-top-color: #482369;
+    
 
 }
 
 input:focus-within {
     border-radius: 6px;
-    border-color: blueviolet;
+    border-color: rgb(157, 61, 247);
     background-color: rgb(234, 227, 240);
     color: rgb(23, 21, 21);   
 }
