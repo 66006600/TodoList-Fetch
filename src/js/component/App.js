@@ -20,7 +20,7 @@ function App() {
           return response.json()
         }
       })
-      .then(data => { 
+      .then(data => {
         console.log(data)
         setItems(data)
       })
@@ -30,7 +30,6 @@ function App() {
       })
 
   }, [])
-
 
   const crearLista = () => {
     fetch('https://assets.breatheco.de/apis/fake/todos/user/Beverly',
@@ -50,8 +49,6 @@ function App() {
 
 
 
-
-
   function addItem() {
     if (!newItem) {
       alert("DIEGO: Enter an item");
@@ -59,34 +56,40 @@ function App() {
     }
 
     const item = {
-      value: newItem
+      label: newItem
     };
 
     fetch('https://assets.breatheco.de/apis/fake/todos/user/Beverly', {
-      method: 'POST',
+      method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(item)
+      [
+       
+      ]
     })
-      .then(response => response.json())
+      .then(response => response.json())    
       .then(data => {
+        console.log(data)
         setItems(oldList => [...oldList, data.todo]);
         setCount(oldCount => oldCount + 1);
         setNewItem("");
       })
-      .catch(error => console.error(error));
+      .catch(error =>  {
+        console.error(error)
+      } );
   };
 
-  // function deleteItem(id) {
-  //   fetch(`/api/todos/${id}`, {
-  //     method: 'DELETE'
-  //   })
-  //     .then(() => {
-  //       const newArray = items.filter(item => item.id !== id);
-  //       setItems(newArray);
-  //       setCount(oldCount => oldCount - 1);
-  //     })
-  //     .catch(error => console.error(error));
-  // };
+  function deleteItem(id) {
+    fetch(`/api/todos/${id}`, {
+      method: 'DELETE'
+    })
+      .then(() => {
+        const newArray = items.filter(item => item.id !== id);
+        setItems(newArray);
+        setCount(oldCount => oldCount - 1);
+      })
+      .catch(error => console.error(error));
+  };
 
   function deleteAll() {
     fetch('https://assets.breatheco.de/apis/fake/todos/user/Beverly', {
@@ -109,7 +112,9 @@ function App() {
           type="text"
           placeholder="Add an item"
           value={newItem}
-          onChange={e => setNewItem(e.target.value)}
+          onChange={e => {setNewItem(e.target.value);
+      console.log(newItem)}
+    }
         />
         <button className='ButtonAdd' onClick={() => addItem()}>Add</button>
       </div>
@@ -117,7 +122,7 @@ function App() {
         <ul>
           {items.map((item, index) => {
             return (
-              <li key={index}>{item.label}
+              <li key={index}>{item?.label}
                 <button className='delete-boton' onClick={() => deleteItem(item.id)}>X</button>
               </li>
             )
