@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/index.css';
+let input = document.querySelector("input");
 
 function App() {
   const [newItem, setNewItem] = useState("");
@@ -7,6 +8,11 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
+    obtenerLista();
+
+  }, [])
+
+  function obtenerLista() {
     fetch('https://assets.breatheco.de/apis/fake/todos/user/Beverly',
       {
         method: 'GET',
@@ -23,13 +29,16 @@ function App() {
       .then(data => {
         console.log(data)
         setItems(data)
+        console.log(items, "setItems")
+
+
       })
 
       .catch(error => {
         console.log(error);
       })
 
-  }, [])
+  }
 
   const crearLista = () => {
     fetch('https://assets.breatheco.de/apis/fake/todos/user/Beverly',
@@ -46,8 +55,13 @@ function App() {
       .catch(error => console.error(error));
   }
 
-
-
+  // input.addEventListener("keydown", function(event) {
+  //   if(event.key == "Enter") {
+  //     let li = document.createElement("li")
+  //     li.textContent = input.value
+  //   }
+  // }  
+  // )
 
   function addItem() {
     if (!newItem) {
@@ -56,27 +70,25 @@ function App() {
     }
 
     const item = {
-      label: newItem
+      label: newItem, done: false
     };
 
     fetch('https://assets.breatheco.de/apis/fake/todos/user/Beverly', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(item)
-      [
-       
-      ]
+      body: JSON.stringify([...items, item])
+
     })
-      .then(response => response.json())    
-      .then(data => {
-        console.log(data)
-        setItems(oldList => [...oldList, data.todo]);
-        setCount(oldCount => oldCount + 1);
-        setNewItem("");
+
+      .then(response => {
+        if (response.ok) {
+          obtenerLista()
+        }
       })
-      .catch(error =>  {
+
+      .catch(error => {
         console.error(error)
-      } );
+      });
   };
 
   function deleteItem(id) {
@@ -98,6 +110,7 @@ function App() {
       .then(() => {
         setItems([]);
         setCount(0);
+        crearLista()
       })
       .catch(error => console.error(error));
   };
@@ -112,9 +125,11 @@ function App() {
           type="text"
           placeholder="Add an item"
           value={newItem}
-          onChange={e => {setNewItem(e.target.value);
-      console.log(newItem)}
-    }
+          onChange={e => {
+            setNewItem(e.target.value);
+            console.log(newItem)
+          }
+          }
         />
         <button className='ButtonAdd' onClick={() => addItem()}>Add</button>
       </div>
