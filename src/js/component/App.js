@@ -84,7 +84,9 @@ function App() {
         if (response.ok) {
           obtenerLista()
         }
+        setNewItem("")
       })
+
 
       .catch(error => {
         console.error(error)
